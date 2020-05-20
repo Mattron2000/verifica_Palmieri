@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{%block titolo%}
+	{{block.super}} | GIORNALISTI
+{%endblock titolo%}
+{% block contenuti %}
+    {% for giornalista in giornalisti %}
+
+    <p>
+        {{ forloop.counter }})
+        <a href="{% url 'news:articoliXGiorn' pk=giornalista.id %}"> {{ giornalista.nome }} {{ giornalista.cognome }}</a>
+    </p>
+
+        <!--
+            <p><strong>Titolo: </strong><a href="{{post.get_absolute_url}}">{{ post.titolo }}</a></p>
+        -->
+    {% endfor %}
+{% endblock contenuti %}

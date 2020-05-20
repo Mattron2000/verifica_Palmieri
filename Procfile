@@ -1,0 +1,1 @@
+web: gunicorn verifica_Palmieri.wsgi --log-file - 

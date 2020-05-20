@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{%block titolo%}
+	{{block.super}} | ARTICOLI
+{%endblock titolo%}
+{% block contenuti %}
+    {% for articolo in articoli %}
+
+    <p>
+        {{ forloop.counter }})  
+        <strong>{{ articolo.titolo }}</strong> <small>({{ articolo.autore }})</small> <!-- - {{ post.data_creazione }} -->
+<br>
+        {{ articolo.contenuto }}
+    </p>
+
+        <!--
+            <p><strong>Titolo: </strong><a href="{{post.get_absolute_url}}">{{ post.titolo }}</a></p>
+        -->
+    {% endfor %}
+{% endblock contenuti %}
