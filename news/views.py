@@ -1,9 +1,7 @@
 from .models import articoli, giornalisti
-from django.urls import reverse
 from django.shortcuts import render
 from django.views.generic.list import ListView
-from .models import articoli, giornalisti
-from django.shortcuts import get_list_or_404, get_object_or_404
+from django.shortcuts import get_object_or_404
 
 def home(request):
     return render(request, "home.html")
@@ -25,3 +23,12 @@ class listaGiornalisti(ListView):
         context = super().get_context_data(**kwargs)
         context["giornalisti"] = giornalisti.objects.all()
         return context
+
+def listArtGiorn(request, pk):
+    giornalista = get_object_or_404(giornalisti, id=pk)
+    articoli = giornalista.articoli.all()
+    context =   {
+        'giornalista': giornalista,
+        'articoli': articoli,
+    }
+    return render(request, 'news/articoli.html', context)

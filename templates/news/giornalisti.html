@@ -7,7 +7,7 @@
 
     <p>
         {{ forloop.counter }})
-        <a href=""> {{ giornalista.nome }} {{ giornalista.cognome }}</a>
+        <a href="{% url 'news:lista-articoli-giornalisti' pk=giornalista.id %}"> {{ giornalista.nome }} {{ giornalista.cognome }}</a>
     </p>
 
         <!--

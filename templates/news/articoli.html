@@ -3,8 +3,8 @@
 	{{block.super}} | ARTICOLI
 {%endblock titolo%}
 {% block contenuti %}
-    {% for articolo in articoli %}
 
+    {% for articolo in articoli %}
     <p>
         {{ forloop.counter }})  
         <strong>{{ articolo.titolo }}</strong> <small>({{ articolo.autore }})</small> <!-- - {{ post.data_creazione }} -->
